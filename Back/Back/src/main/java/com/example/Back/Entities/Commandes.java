@@ -1,5 +1,7 @@
 package com.example.Back.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,9 +25,11 @@ public class Commandes {
     @ManyToOne
     private Client client;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "commandes")
     private List<Product> products;
 
+    @JsonBackReference
     @ManyToOne
     private DeliveryAgent deliveryAgent;
 

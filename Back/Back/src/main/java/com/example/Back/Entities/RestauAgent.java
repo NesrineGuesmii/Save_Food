@@ -1,4 +1,5 @@
 package com.example.Back.Entities;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -11,9 +12,11 @@ public class RestauAgent extends Person{
 
     private String restaurant;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "restauAgent")
     private List<Commandes> commandes;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "restauAgent")
     private List<Product> products;
 

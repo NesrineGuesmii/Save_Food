@@ -1,5 +1,6 @@
 package com.example.Back.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,11 @@ public class Product {
 
     private String type;
 
+    @JsonBackReference
     @ManyToOne
     private RestauAgent restauAgent;
 
+    @JsonBackReference
     @ManyToOne
     private Commandes commandes;
 }
